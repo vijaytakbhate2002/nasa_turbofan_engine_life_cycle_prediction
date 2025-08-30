@@ -1,0 +1,14 @@
+artifact_uri: file:///E:/WorkSpace/Complete_MLOps_Bootcamp_With_10_End_To_End_ML_Projects/nasa_turbofan_engine_RUL_prediction/turbofan_engine_life_prediction/mlruns/737491032649048502/0a6846c7950d414f9920943955eb3dfc/artifacts
+end_time: 1756462098815
+entry_point_name: ''
+experiment_id: '737491032649048502'
+lifecycle_stage: active
+run_id: 0a6846c7950d414f9920943955eb3dfc
+run_name: shivering-auk-470
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756461565159
+status: 4
+tags: []
+user_id: admin

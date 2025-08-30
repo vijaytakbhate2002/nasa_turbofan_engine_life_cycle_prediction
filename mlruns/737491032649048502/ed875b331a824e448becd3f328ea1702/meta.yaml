@@ -1,0 +1,14 @@
+artifact_uri: file:///E:/WorkSpace/Complete_MLOps_Bootcamp_With_10_End_To_End_ML_Projects/nasa_turbofan_engine_RUL_prediction/turbofan_engine_life_prediction/mlruns/737491032649048502/ed875b331a824e448becd3f328ea1702/artifacts
+end_time: 1756467140649
+entry_point_name: ''
+experiment_id: '737491032649048502'
+lifecycle_stage: active
+run_id: ed875b331a824e448becd3f328ea1702
+run_name: industrious-bear-598
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756466964975
+status: 4
+tags: []
+user_id: admin
