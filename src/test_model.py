@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.metrics import accuracy_score as skl_accuracy_score
+from sklearn.metrics import r2_score
 import json
 
 
@@ -38,12 +38,16 @@ def test_model(model, test_X, test_y):
     Returns:
         tuple: (loss, mae, accuracy)
     """
-    y_pred = model.predict(test_X)
-    loss = model.evaluate(test_X, test_y, verbose=0)
-    y_pred = test_y
-    mae = np.mean(np.abs(test_y - y_pred))
-    accuracy = skl_accuracy_score(test_y, np.round(y_pred))
-    return loss, mae, accuracy
+    y_pred = model.predict(test_X).flatten()
+    y_pred = list(map(int, y_pred))
+    difference_abs = [abs(a - b) for a, b in zip(y_pred, test_y)]
+    difference_sqr = [(a - b)**2 for a, b in zip(y_pred, test_y)]
+    mae = np.mean(difference_abs)
+    mse = np.mean(difference_sqr)
+    rmse = np.sqrt(mse)
+    r2 = r2_score(test_y, y_pred)
+
+    return mae, mse, rmse, r2
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, MaxPooling1D, Conv1D
+from tensorflow.keras.layers import Dense, LSTM, MaxPooling1D, Conv1D, Dropout
 
 class ModelTraining:
     def __init__(self, timestamps: int, features: int, pool_size: int = 2, filters: int = 64, kernel_size: int = 3):
@@ -12,13 +12,27 @@ class ModelTraining:
 
     def buildModel(self) -> Sequential:
         """Builds and returns a Sequential model."""
-
+        # model = Sequential([
+        #     # --- CNN part ---
+        #     Conv1D(filters=64, kernel_size=3, activation='relu', input_shape=(timesteps, features)),
+        #     MaxPooling1D(pool_size=2),
+        #     # Dropout(0.3),
+            
+        #     # --- LSTM part ---
+        #     LSTM(64, return_sequences=False),
+        #     # Dropout(0.3),
+            
+        #     # --- Fully connected ---
+        #     Dense(64, activation='relu'),
+        #     Dense(1)   # output layer → RUL (regression)
+        # ])
         model = Sequential(
             [
                 Conv1D(filters = self.filters, kernel_size = self.kernel_size, activation='relu', input_shape = (self.timestamps, self.features)),
                 MaxPooling1D(pool_size = self.pool_size),
-
+                Dropout(0.3),
                 LSTM(64, return_sequences = False),
+                Dropout(0.3),
 
                 Dense(self.filters, activation = 'relu'),
                 Dense(1)
@@ -39,7 +53,7 @@ class ModelTraining:
     def fit(self, X_train, y_train, epochs:int=30, batch_size:int=64, validation_split:float=0.3) -> Sequential:
         """Fits the model on training data."""
         model = self.compileModel()
-        model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=validation_split)
+        model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=validation_split, verbose=1)
         return model
     
 

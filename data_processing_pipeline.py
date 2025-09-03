@@ -1,8 +1,13 @@
 from src.pipelines import training_data_processing_pipeline, testing_data_processing_pipeline
 from src import config
+from src.data_operation import DataOperation
 import pandas as pd
 import json
 import os
+
+data_op = DataOperation()
+data_op.extractData()
+    
 
 train_raw_data = pd.read_csv(config.RAW_TRAIN_PATH)
 test_raw_data = pd.read_csv(config.RAW_TEST_PATH)
