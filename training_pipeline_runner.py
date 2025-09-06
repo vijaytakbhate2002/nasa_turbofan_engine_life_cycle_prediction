@@ -8,13 +8,8 @@ import os
 import numpy as np
 # from tensorflow.keras.models import Sequential
 
-<<<<<<< HEAD
-os.environ['MLFLOW_TRACKING_USERNAME'] = 'takbhatevijay@gmail.com'
-os.environ['MLFLOW_TRACKING_PASSWORD'] = 'Vijayamazon@2002'
-=======
 os.environ['MLFLOW_TRACKING_USERNAME'] = 'TYPE YOUR USERNAME HERE'
 os.environ['MLFLOW_TRACKING_PASSWORD'] = 'TYPE YOUR PASSWORD HERE'
->>>>>>> 2f5caf17d950e73e0e965a735ff2703e354797c5
 
 
 os.environ['MLFLOW_TRACKING_URI'] = 'http://ec2-3-81-87-234.compute-1.amazonaws.com:5000/'
