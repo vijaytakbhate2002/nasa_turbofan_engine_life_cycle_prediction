@@ -6,15 +6,19 @@ from urllib.parse import urlparse
 import sys
 import os
 import numpy as np
-# from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential
 
-os.environ['MLFLOW_TRACKING_USERNAME'] = 'TYPE YOUR USERNAME HERE'
-os.environ['MLFLOW_TRACKING_PASSWORD'] = 'TYPE YOUR PASSWORD HERE'
-
+# os.environ['MLFLOW_TRACKING_USERNAME'] = 'TYPE YOUR USERNAME HERE'
+# os.environ['MLFLOW_TRACKING_PASSWORD'] = 'TYPE YOUR PASSWORD HERE'
 
 os.environ['MLFLOW_TRACKING_URI'] = 'http://ec2-3-81-87-234.compute-1.amazonaws.com:5000/'
+os.environ['MLFLOW_TRACKING_URI'] = "mlruns"
 
 URI = os.environ.get('MLFLOW_TRACKING_URI')
+
+print(URI)
+print( urlparse(URI).scheme)
+
 mlflow.set_tracking_uri(URI)
 mlflow.set_experiment("Turbofan Engine RUL Prediction")
 
@@ -87,10 +91,16 @@ with mlflow.start_run():
             artifact_path="model",
             registered_model_name="Turbofan_Engine_Life_Prediction",
             signature=model_signature,
-            pip_requirements=["tensorflow==2.16.1", "keras==3.11.3"]  # optional
+            pip_requirements=["tensorflow==2.16.1", "keras==3.11.3"]  
         )
     else:
-        print("Skipping model logging to MLflow as the tracking URI is a local file path.")
+        mlflow.keras.log.model(
+            model=model,
+            artifact_path="model",
+            signature=model_signature,
+            registered_model_name="Turbofan_Engine_Life_Prediction".
+            pip_requirements=["tensorflow==2.16.1", "keras==3.11.3"]
+        )
 
     print("Model training completed and logged to MLflow.")
 

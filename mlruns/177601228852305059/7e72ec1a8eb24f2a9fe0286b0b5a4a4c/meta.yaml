@@ -1,0 +1,14 @@
+artifact_uri: file:F:/Vijay_Takbhate/Docker_Learning/nasa_turbofan_engine_life_prediction/nasa_turbofan_engine_life_cycle_prediction/mlruns/177601228852305059/7e72ec1a8eb24f2a9fe0286b0b5a4a4c/artifacts
+end_time: 1757167601826
+entry_point_name: ''
+experiment_id: '177601228852305059'
+lifecycle_stage: active
+run_id: 7e72ec1a8eb24f2a9fe0286b0b5a4a4c
+run_name: skittish-pug-598
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757167432228
+status: 3
+tags: []
+user_id: prash

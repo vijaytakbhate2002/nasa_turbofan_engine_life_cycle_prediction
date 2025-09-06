@@ -19,6 +19,7 @@ test_X, test_y = testing_data_processing_pipeline.fit_transform(X=test_raw_data,
 
 
 os.makedirs("data\\processed_data", exist_ok=True)
+
 if not os.path.exists("data\\processed_data\\testing_data.json"):
     with open("data\\processed_data\\testing_data.json", 'w') as file:
         json.dump({'test_X':[], 'test_y':[]}, file)

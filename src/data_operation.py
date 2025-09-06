@@ -39,6 +39,10 @@ class DataOperation:
                     self.rul_df['file_name'] = file
                     self.rul_df = pd.concat([self.rul_df, df], axis=0)
 
+            if os.path.exists(config.RAW_DATA_PATH) == False:
+                os.makedirs(config.RAW_DATA_PATH)
+                logging.info(f"Created directory at {config.RAW_DATA_PATH}")
+                
             self.train_df.to_csv(os.path.join(config.RAW_DATA_PATH, 'train_data.csv'), index=False)
             self.test_df.to_csv(os.path.join(config.RAW_DATA_PATH, 'test_data.csv'), index=False)
             self.rul_df.to_csv(os.path.join(config.RAW_DATA_PATH, 'rul_data.csv'), index=False)
@@ -46,17 +50,6 @@ class DataOperation:
 
         except Exception as e:
             logging.error(f"Error loading data: {e}")        
-
-    # def dumpProcessedData(self, df: pd.DataFrame, file_name: str) -> None:
-    #     """Dumps the processed data into the processed data directory"""
-    #     try:
-    #         processed_data_path = os.path.join(os.getcwd(), "data", "processed_data")
-    #         if not os.path.exists(processed_data_path):
-    #             os.makedirs(processed_data_path)
-    #         df.to_csv(os.path.join(processed_data_path, file_name), index=False)
-    #         logging.info(f"Processed data dumped in {processed_data_path} as {file_name}")
-    #     except Exception as e:
-    #         logging.error(f"Error dumping processed data: {e}")
 
 if __name__ == "__main__":
     data_op = DataOperation()

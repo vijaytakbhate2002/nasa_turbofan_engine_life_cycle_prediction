@@ -1,0 +1,10 @@
+artifact_location: file:F:/Vijay_Takbhate/Docker_Learning/nasa_turbofan_engine_life_prediction/nasa_turbofan_engine_life_cycle_prediction/mlruns/177601228852305059/models/m-e691fc2bcfe24986bc3f3bb7823d289d/artifacts
+creation_timestamp: 1757167588304
+experiment_id: '177601228852305059'
+last_updated_timestamp: 1757167601621
+model_id: m-e691fc2bcfe24986bc3f3bb7823d289d
+model_type: null
+name: model
+source_run_id: 7e72ec1a8eb24f2a9fe0286b0b5a4a4c
+status: 2
+status_message: null
